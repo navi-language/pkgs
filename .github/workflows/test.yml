@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Get submodules
+        run: git submodule update --init --recursive
       - uses: oven-sh/setup-bun@v1
       - name: Install dependencies
         run: bun install
