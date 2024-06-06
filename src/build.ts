@@ -20,7 +20,7 @@ export const buildPkg = async (pkgName: string) => {
     dependencies[`@navi-language/${name}`] = version;
   }
   const packgeJson = {
-    name: `@navi-language/${pkgName}`,
+    name: `@navi-lang/${pkgName}`,
     version: pkgInfo.version,
     description: pkgInfo.description,
     repository: pkgInfo.repository,
