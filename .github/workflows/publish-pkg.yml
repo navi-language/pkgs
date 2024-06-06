@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - test-ci
 
 jobs:
   publish:
@@ -19,4 +20,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_TOKEN}}
           SUPABASE_KEY: ${{secrets.SUPABASE_KEY}}
-        run: bun run publish
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
+          bun run publish
