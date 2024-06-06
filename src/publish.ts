@@ -6,7 +6,7 @@ const uploadPkg = async (pkgName: string) => {
   console.log(`Uploading ${pkgName}...`);
 
   // Use npm publish to upload package
-  child_process.execSync("npm publish --public", {
+  child_process.execSync("npm publish --access public", {
     cwd: `./pkgs/${pkgName}`,
     env: process.env,
   });

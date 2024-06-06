@@ -1,5 +1,7 @@
 import fs from "fs";
 
+const SCOPE = "@navi-lang";
+
 const DEFAULT_PACKAGE_JSON = {
   private: false,
   // publishConfig: {
@@ -17,10 +19,10 @@ export const buildPkg = async (pkgName: string) => {
   pkgInfo.dependencies = pkgInfo.dependencies || {};
   const dependencies = {};
   for (const [name, version] of Object.entries(pkgInfo.dependencies)) {
-    dependencies[`@navi-language/${name}`] = version;
+    dependencies[`${SCOPE}/${name}`] = version;
   }
   const packgeJson = {
-    name: `@navi-lang/${pkgName}`,
+    name: `${SCOPE}/${pkgName}`,
     version: pkgInfo.version,
     description: pkgInfo.description,
     repository: pkgInfo.repository,
