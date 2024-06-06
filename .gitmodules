@@ -1,0 +1,3 @@
+[submodule "pkgs/unindent"]
+	path = pkgs/unindent
+	url = https://github.com/huacnlee/navi-unindent

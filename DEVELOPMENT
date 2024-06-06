@@ -1,0 +1,6 @@
+## Build and publish pkg
+
+```bash
+$ bun run build <pkg-name>
+$ bun run publish <pkg-name>
+```

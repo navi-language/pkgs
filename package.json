@@ -1,0 +1,13 @@
+{
+  "name": "navi-pkgs",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "bun src/build.ts",
+    "publish": "bun src/publish.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.4",
+    "@types/semver": "^7.5.8",
+    "semver": "^7.6.2"
+  }
+}

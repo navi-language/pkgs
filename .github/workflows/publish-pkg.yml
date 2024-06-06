@@ -1,0 +1,20 @@
+name: Publish Pkg
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Install dependencies
+        run: bun install
+      - name: Publish package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PUBLISH_TOKEN}}
+          SUPABASE_KEY: ${{secrets.SUPABASE_KEY}}
+        run: bun run publish
