@@ -2,6 +2,8 @@
   "name": "navi-pkgs",
   "version": "1.0.0",
   "scripts": {
+    "add-pkg": "sh script/add-pkg.sh",
+    "update-pkg": "sh script/update-pkg.sh",
     "build": "bun src/build.ts",
     "publish": "bun src/publish.ts"
   },

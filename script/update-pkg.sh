@@ -15,6 +15,9 @@ if [ -z "$PKG_NAME" ]; then
     exit 1
 fi
 
+echo "Reset the submodule changes..."
+git submodule foreach git reset --hard
+
 echo "Updating pkg/$PKG_NAME submodule ..."
 if [ -z "$VERSION" ]; then
     git submodule update --remote pkgs/$PKG_NAME
