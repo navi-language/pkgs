@@ -2,9 +2,9 @@ import fs from "fs";
 
 const DEFAULT_PACKAGE_JSON = {
   private: false,
-  publishConfig: {
-    registry: "https://npm.pkg.github.com/",
-  },
+  // publishConfig: {
+  //   registry: "https://npm.pkg.github.com/",
+  // },
 };
 
 /**
