@@ -15,6 +15,8 @@ export interface MetadataPkg {
 export interface PkgInfo {
   name: string;
   version: string;
+  description?: string;
+  repository?: string;
 }
 
 const supabaseKey = process.env.SUPABASE_KEY || "";
@@ -40,7 +42,12 @@ function chunk(array: any[], size = 1) {
 const iteratePkgs = async (callback: (pkg: PkgInfo) => void) => {
   fs.readdirSync("./pkgs").forEach((pkgName) => {
     const pkgInfo = require(`../pkgs/${pkgName}/navi.toml`);
-    callback({ name: pkgInfo.name, version: pkgInfo.version });
+    callback({
+      name: pkgInfo.name,
+      version: pkgInfo.version,
+      description: pkgInfo.description,
+      repository: pkgInfo.repository,
+    });
   });
 };
 
@@ -90,6 +97,8 @@ export const upsertPkg = async (pkg: PkgInfo) => {
       {
         name: pkg.name,
         version: pkg.version,
+        description: pkg.description,
+        repository: pkg.repository,
       },
       {
         onConflict: "name",

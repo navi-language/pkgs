@@ -22,6 +22,6 @@ console.log(updatedPkgs.map((pkg) => pkg.name).join(", "));
 
 for (const pkg of updatedPkgs) {
   await buildPkg(pkg.name);
-  // await uploadPkg(pkg.name);
+  await uploadPkg(pkg.name);
   await upsertPkg(pkg);
 }
